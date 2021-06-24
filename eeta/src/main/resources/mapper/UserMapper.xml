@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.demo.eeta.repository.UserMapper">
+
+<!--    <select id="selectUsers"-->
+<!--            parameterType="com.demo.eeta.domain.UserVo"-->
+<!--            resultType="com.demo.eeta.domain.UserVo">-->
+<!--        SELECT-->
+<!--        `seq`, `name`, `country`-->
+<!--        FROM user-->
+<!--        <if test='country != null and country != ""'>-->
+<!--            WHERE country = #{country}-->
+<!--        </if>-->
+<!--    </select>-->
+<!--    <select id="selectUser"-->
+<!--            parameterType="String"-->
+<!--            resultType="com.demo.eeta.domain.UserVo"-->
+<!--    >-->
+<!--        SELECT *-->
+<!--        FROM user-->
+<!--        WHERE id = ${seq}-->
+<!--    </select>-->
+<!--    <select id="getUserList" resultType="com.demo.eeta.domain.UserVo">-->
+<!--        select * from user-->
+<!--    </select>-->
+    <select id="UserList" resultType="java.util.List">
+        select * from user
+    </select>
+    <select id="UserSelected" resultType="com.demo.eeta.domain.UserVo">select * from user u where id=#{id}</select>
+
+
+</mapper>
