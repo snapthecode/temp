@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(value = "/")
+//@RequestMapping(value = "/")
 @MapperScan(basePackages = "com.demo.eeta.repository")
 public class main {
     private final UserMapper usermapper;
@@ -18,7 +18,7 @@ public class main {
         this.usermapper = usermapper;
     }
 
-    @GetMapping("/")
+    @GetMapping("/main")
     public String main() {
         return "th/main";
     }
@@ -28,6 +28,26 @@ public class main {
         UserVo vo = new UserVo();
         vo = usermapper.UserSelected("admin");
         model.addAttribute("user", vo);
-        return "th/mainTest";
+        return "th/user";
+    }
+
+    @RequestMapping(value = "/about")
+    public String about() {
+        return "th/about";
+    }
+
+    @RequestMapping("/*")
+    public String ohter() {
+        return "th/about";
+    }
+
+    @RequestMapping(value = "/hi")
+    public String hi() {
+        return "th/hi";
+    }
+
+    @RequestMapping(value = "/write")
+    public String write() {
+        return "th/fragments/write";
     }
 }
